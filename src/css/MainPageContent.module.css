@@ -1,0 +1,61 @@
+.pageTextContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  margin-top: 25vh;
+  padding: 0 5vw;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: aliceblue;
+  width: 100%;
+}
+
+.pageTextContent2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  margin-top: 2vh;
+  padding: 0 5vw;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: aliceblue;
+  width: 100%;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* -------------------------------------------------OLD CODE */
+/* .pageTextContent {
+  display: inline-flex;
+  position: relative;
+  top: 310px;
+  left: 486px;
+  font-size: 3.5rem;
+  color: aliceblue;
+  width: 1000px;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.pageTextContent2 {
+  display: inline-flex;
+  position: relative;
+  top: 296px;
+  left: 790px;
+  font-size: 18px;
+  color: aliceblue;
+  width: 1000px;
+  word-wrap: break-word;
+  text-align: center;
+} */
