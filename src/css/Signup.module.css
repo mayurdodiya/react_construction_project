@@ -1,0 +1,118 @@
+html,
+body {
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  height: 100vh;
+  /* background: url("https://images.unsplash.com/photo-1607082349566-187342f11872?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80") no-repeat center center/cover; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.loginBox {
+  width: 1000px;
+  height: 800px;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 17vh auto 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+.login_box {
+  font-size: large;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 50px 144px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  width: 50vw;
+  height: 71vh;
+  color: white;
+}
+
+.login_box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input_group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input_group input {
+  width: 100%;
+  height: 60px;
+  font-size: large;
+  padding: 10px 40px 10px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.input_group input::placeholder {
+  color: white;
+}
+
+.input_group i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.login_btn {
+  width: 100%;
+  font-size: large;
+  height: 60px;
+  padding: 10px;
+  border: none;
+  background-color: white;
+  color: purple;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.register_link {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.register_link a {
+  color: white;
+  text-decoration: underline;
+}

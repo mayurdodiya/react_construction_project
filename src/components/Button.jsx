@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { } from "react";
 import style from "./../css/Button.module.css";
 import { Link } from "react-router";
 // import { useNavigate } from "react-router-dom";  // Import useHistory
@@ -19,15 +19,19 @@ const Button49 = () => {
     // return setLogSignup("signup");
   }
   return (
-    <>
-      <button className={style["button-49"]} role="button" onClick={loginFun}>
-        Login
-        <Link key="1" to={'/login'}>Lojj</Link>
-      </button>
-      <button className={style["button-48"]} role="button" onClick={signUpFun}>
-        SignUp
-      </button>
-    </>
+    <span className={style.btnSpan}>
+      <Link key="1" to={"/login"}>
+        <button className={style["button-49"]} role="button" onClick={loginFun}>
+          Login
+        </button>
+      </Link>
+
+      <Link key="2" to={"/signup"}>
+        <button className={style["button-48"]} role="button" onClick={signUpFun}>
+          SignUp
+        </button>
+      </Link>
+    </span>
   );
 };
 

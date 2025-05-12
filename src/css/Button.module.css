@@ -19,6 +19,12 @@
   line-height: 45px;
 } */
 
+.btnSpan {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}
+
 .button-49,
 .button-48,
 .button-49:after,
@@ -39,6 +45,10 @@
   cursor: pointer;
   line-height: 45px;
   text-align: center;
+
+  /* position: relative;
+  top: 93px;
+  left: 500px; */
 }
 
 .button-49 {
@@ -62,13 +72,7 @@
   display: block;
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    45deg,
-    transparent 3%,
-    #00e6f6 3%,
-    #00e6f6 5%,
-    #ff013c 5%
-  );
+  background: linear-gradient(45deg, transparent 3%, #00e6f6 3%, #00e6f6 5%, #ff013c 5%);
   text-shadow: -2px -2px 0px #f8f005, 2px 2px 0px #00e6f6;
   clip-path: var(--slice-0);
 }

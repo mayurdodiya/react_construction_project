@@ -6,6 +6,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./components/App";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
+import MainPage from "./components/MainPage";
+import DashBoard from "./components/DashBoard";
+import EditUser from "./components/EditUser";
 
 // set router
 const router = createBrowserRouter([
@@ -14,19 +18,27 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: "/",
+        element: <MainPage />,
+      },
+      {
         path: "/login",
         element: <Login />,
       },
-    ]
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
+      {
+        path: "/dashboard",
+        element: <DashBoard />,
+      },
+      {
+        path: "/editUser",
+        element: <EditUser />,
+      },
+    ],
   },
-  // {
-  //   path: "/login",
-  //   element: <Login/>,
-  // },
-  // {
-  //   path: "/signin",
-  //   element: <Login />,
-  // },
 ]);
 
 const root = createRoot(document.getElementById("root"));

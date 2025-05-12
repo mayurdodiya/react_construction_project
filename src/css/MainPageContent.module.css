@@ -4,11 +4,11 @@
   align-items: center;
   text-align: center;
   position: relative;
-  margin-top: 25vh;
+  margin: 4vh auto 0;
   padding: 0 5vw;
   font-size: clamp(2rem, 5vw, 4rem);
   color: aliceblue;
-  width: 100%;
+  width: 80%;
 }
 
 .pageTextContent2 {
