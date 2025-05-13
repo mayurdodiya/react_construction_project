@@ -1,12 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import style from "./../css/DashBoard.module.css";
 import { useEffect, useRef, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import loginPageImg from "../img/login1.png";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function DashBoard() {
-  const location = useLocation();
   const navigate = useNavigate();
   const [userData, setUserData] = useState([]);
   const countRef = useRef(0);
