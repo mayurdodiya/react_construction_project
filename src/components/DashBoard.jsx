@@ -7,12 +7,15 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function DashBoard() {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState([]);
+  let [userData, setUserData] = useState([]);
+  const [pagIngData, setPagingData] = useState(0);
+  const [search, setSearch] = useState("");
   const countRef = useRef(0);
   console.log(countRef, "----------------------------- useRef");
+
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:4001/api/v1/auth/userList", {
+    fetch(`http://localhost:4001/api/v1/auth/userList?page=${pagIngData}&size=${5}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +26,11 @@ function DashBoard() {
       .then((data) => {
         setUserData(data.data);
       });
-  }, []);
+  }, [pagIngData]);
+  const searchHandle = () => {
+    const normalizedSearch = search.trim().toLowerCase();
+    setUserData(userData.filter((data) => data.email.toLowerCase().includes(normalizedSearch)));
+  };
 
   return (
     <>
@@ -33,6 +40,17 @@ function DashBoard() {
       <div className={style.login_box}>
         <div className={style.table_wrapper}>
           <h1>Dashbord</h1>
+
+          <input
+            type="text"
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+          <button onClick={searchHandle}>Search</button>
+          <br />
+          <br />
+
           {/* <h1>useRef = {countRef.current}</h1>
                       <button onClick={()=> {
                         countRef.current = countRef.current + 1
@@ -64,6 +82,20 @@ function DashBoard() {
             </tbody>
           </table>
         </div>
+        <span className={style.pageSpan}>
+          {pagIngData === 0 ? (
+            ""
+          ) : (
+            <button className={style.PageBtn} onClick={() => setPagingData(pagIngData === 0 ? 0 : pagIngData - 1)}>
+              Prev Page
+            </button>
+          )}
+          {
+            <button className={style.PageBtn} onClick={() => setPagingData(pagIngData + 1)}>
+              Next Page
+            </button>
+          }
+        </span>
       </div>
     </>
   );

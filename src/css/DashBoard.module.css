@@ -52,6 +52,7 @@ body {
   height: 71vh;
   color: white;
   overflow-y: auto;
+  position: relative;
 }
 
 .login_box h2 {
@@ -109,4 +110,61 @@ body {
   top: 0;
   background: white;
   z-index: 10000;
+}
+
+/* .pageSpan {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+  position: relative;
+  top: 1px; 
+}
+
+.PageBtn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.PageBtn:hover {
+  background: rgba(255, 0, 76, 0.8);
+  color: white;
+  border-color: rgba(255, 0, 76, 0.8);
+} */
+
+.pageSpan {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+  padding-bottom: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 37%; 
+}
+
+.PageBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+   border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.PageBtn:hover {
+  background-color: rgba(255, 0, 76, 0.8);
 }
