@@ -4,14 +4,19 @@ import { useEffect, useRef, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import loginPageImg from "../img/login1.png";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import LeftBtnMenu from "./LeftBtnMenu";
 
 function DashBoard() {
   const navigate = useNavigate();
   let [userData, setUserData] = useState([]);
   const [pagIngData, setPagingData] = useState(0);
   const [search, setSearch] = useState("");
+  const [menuPosition, setLeftBtnMenu] = useState({});
+  const [dataId, setId] = useState("0");
   const countRef = useRef(0);
   console.log(countRef, "----------------------------- useRef");
+  console.log(dataId, "----------------------------- useRef");
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -26,15 +31,21 @@ function DashBoard() {
       .then((data) => {
         setUserData(data.data);
       });
-  }, [pagIngData]);
+  }, [pagIngData, menuPosition, search]);
+
   const searchHandle = () => {
     const normalizedSearch = search.trim().toLowerCase();
-    setUserData(userData.filter((data) => data.email.toLowerCase().includes(normalizedSearch)));
+    console.log(normalizedSearch, "----------------normalizedSearch");
+    if (normalizedSearch != "") {
+      setUserData(userData.filter((data) => data.email.toLowerCase().includes(normalizedSearch)));
+    } else {
+      setSearch("");
+    }
   };
 
   return (
     <>
-      <ToastContainer position="top-right" autoClose={3000} style={{ zIndex: 9999 }} />
+      <LeftBtnMenu menuPosition={[menuPosition, setLeftBtnMenu, dataId]} />
       <img className={style.img} src={loginPageImg} alt="main page img" />
       {/* <div className={style.login_box} onSubmit={"HandleSubmit"}> */}
       <div className={style.login_box}>
@@ -67,7 +78,20 @@ function DashBoard() {
             </thead>
             <tbody>
               {userData.map((data, idx) => (
-                <tr key={idx}>
+                <tr
+                  key={idx}
+                  onContextMenu={(e) => {
+                    // can open right click menu
+                    e.preventDefault(); // close browser default menu
+                    console.log(e.clientX, e.clientY); // arrow move
+                    setLeftBtnMenu({ left: e.clientX, top: e.clientY });
+                    setId(data._id);
+                  }}
+                  onClick={(e) => {
+                    // set other event
+                    setLeftBtnMenu({});
+                  }}
+                >
                   <td>{idx + 1}</td>
                   <td>{data.name}</td>
                   <td>{data.email}</td>

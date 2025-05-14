@@ -62,7 +62,6 @@ function Login() {
 
   return (
     <>
-      <ToastContainer position="top-right" autoClose={3000} style={{ zIndex: 9999 }} />
       <img className={style.img} src={loginPageImg} alt="main page img" />
       <form className={style.login_box} onSubmit={HandleSubmit}>
         <h2>Login</h2>

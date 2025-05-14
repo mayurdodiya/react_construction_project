@@ -2,10 +2,11 @@ import style from "./../css/Signup.module.css";
 import loginPageImg from "../img/login1.png";
 
 import { useEffect, useState } from "react";
-import { Link, useLocation, useParams, useSearchParams } from "react-router";
+import { Link, useLocation, useNavigate, useParams, useSearchParams } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 
 function EditUser() {
+  const navigate = useNavigate();
   const [location] = useSearchParams();
   const id = location.get("id");
 
@@ -34,8 +35,6 @@ function EditUser() {
   }, []);
 
   async function SaveData() {
-    console.log("-----------wwwwwwwwwwwwwwwwwww");
-
     const token = localStorage.getItem("token");
     const url = `http://localhost:4001/api/v1/auth/editUserById/${id}`;
     console.log(url, "------------------url");
@@ -57,6 +56,7 @@ function EditUser() {
     if (response?.success) {
       console.log("update successfully");
       toast.success(response?.message);
+      navigate("/dashboard");
     } else {
       console.log("not-update successfully");
       toast.error(response?.message);
@@ -64,11 +64,7 @@ function EditUser() {
   }
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        style={{ zIndex: 9999 }}
-      />
+      <ToastContainer position="top-right" autoClose={3000} style={{ zIndex: 9999 }} />
       <img className={style.img} src={loginPageImg} alt="main page img" />
       <form
         className={style.login_box}
@@ -80,57 +76,27 @@ function EditUser() {
         <h2>Edit Profile Detail</h2>
 
         <div className={style.input_group}>
-          <input
-            type="text"
-            name="name"
-            placeholder={userData.name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+          <input type="text" name="name" placeholder={userData.name} onChange={(e) => setName(e.target.value)} required />
           <i>🔒</i>
         </div>
 
         <div className={style.input_group}>
-          <input
-            type="text"
-            name="phone no"
-            placeholder={userData.phone_no}
-            onChange={(e) => setMobile(e.target.value)}
-            required
-          />
+          <input type="text" name="phone no" placeholder={userData.phone_no} onChange={(e) => setMobile(e.target.value)} required />
           <i>🔒</i>
         </div>
 
         <div className={style.input_group}>
-          <input
-            type="text"
-            name="email"
-            placeholder={userData.email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <input type="text" name="email" placeholder={userData.email} onChange={(e) => setEmail(e.target.value)} required />
           <i>🔒</i>
         </div>
 
         <div className={style.input_group}>
-          <input
-            type="password"
-            name="password"
-            placeholder="-"
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <input type="password" name="password" placeholder="-" onChange={(e) => setPassword(e.target.value)} required />
           <i>🔒</i>
         </div>
 
         <div className={style.input_group}>
-          <input
-            type="password"
-            name="confirm password"
-            placeholder="-"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
+          <input type="password" name="confirm password" placeholder="-" onChange={(e) => setConfirmPassword(e.target.value)} required />
           <i>🔒</i>
         </div>
         <br />

@@ -1,0 +1,39 @@
+.btnMenu {
+  position: absolute;
+  z-index: 9999;
+  width: 120px;
+  padding: 8px 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  animation: fadeIn 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.btn {
+  all: unset;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
