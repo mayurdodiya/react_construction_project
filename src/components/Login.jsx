@@ -28,7 +28,7 @@ function Login() {
     const validateError = validate(formData);
     if (Object.keys(validateError).length > 0) {
       return;
-    }
+    } 
 
     try {
       const response = await fetch("http://localhost:4001/api/v1/auth/login", {

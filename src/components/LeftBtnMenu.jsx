@@ -3,7 +3,7 @@ import style from "./../css/LeftBtnMenu.module.css";
 
 function LeftBtnMenu({ menuPosition }) {
   const [position, setLeftBtnMenu, dataId] = menuPosition;
-  console.log(position, "------------- dddddddddddddddddddddddddd");
+  // console.log(position, "------------- dddddddddddddddddddddddddd");
   if (!position.left) return;
 
   return (

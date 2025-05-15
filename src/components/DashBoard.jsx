@@ -31,16 +31,20 @@ function DashBoard() {
       .then((data) => {
         setUserData(data.data);
       });
-  }, [pagIngData, menuPosition, search]);
+  }, [pagIngData, menuPosition, search, sorting]);
 
   const searchHandle = () => {
     const normalizedSearch = search.trim().toLowerCase();
-    console.log(normalizedSearch, "----------------normalizedSearch");
     if (normalizedSearch != "") {
       setUserData(userData.filter((data) => data.email.toLowerCase().includes(normalizedSearch)));
     } else {
       setSearch("");
     }
+  };
+
+  const sortingHandle = async (type) => {
+    const sortingData = [...userData].sort((a, b) => type=='dsc'?b.phone_no - a.phone_no: a.phone_no - b.phone_no);
+    setUserData(sortingData);
   };
 
   return (
@@ -51,17 +55,20 @@ function DashBoard() {
       <div className={style.login_box}>
         <div className={style.table_wrapper}>
           <h1>Dashbord</h1>
-
           <input
             type="text"
             onChange={(e) => {
+              e.stopPropagation()
               setSearch(e.target.value);
             }}
           />
           <button onClick={searchHandle}>Search</button>
           <br />
           <br />
-
+          <button onClick={() => sortingHandle("asc")}>ASC</button>&nbsp;&nbsp;
+          <button onClick={() => sortingHandle("dsc")}>DSC</button>
+          <br />
+          <br />
           {/* <h1>useRef = {countRef.current}</h1>
                       <button onClick={()=> {
                         countRef.current = countRef.current + 1
