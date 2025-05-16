@@ -31,7 +31,7 @@ function DashBoard() {
       .then((data) => {
         setUserData(data.data);
       });
-  }, [pagIngData, menuPosition, search, sorting]);
+  }, [pagIngData, menuPosition, search]);
 
   const searchHandle = () => {
     const normalizedSearch = search.trim().toLowerCase();
